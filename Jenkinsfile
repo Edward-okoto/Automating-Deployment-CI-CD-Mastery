@@ -8,8 +8,8 @@ pipeline {
     }
 
     tools {
-        maven 'Maven 3' // Name of Maven installation in Jenkins Global Tool Configuration
-        jdk 'Java 11'  // Name of JDK installation in Jenkins Global Tool Configuration
+        maven 'maven 3' // Name of Maven installation in Jenkins Global Tool Configuration
+        jdk 'java 11'  // Name of JDK installation in Jenkins Global Tool Configuration
     }
 
     stages {
