@@ -111,9 +111,13 @@
        ```
     ![](./a10.png)
 
-    
+
 2. **Post-Build Actions**:
    - Configure actions like archiving artifacts or sending notifications.
+    
+    ![](./a11.png)
+
+    ![](./a12.png)
 
 ---
 
