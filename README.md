@@ -274,3 +274,10 @@ Include the Dockerfile, pom.xml, source code, and Jenkinsfile in your repository
 
 
 
+Result :Complete CI/CD pipeline
+
+![](./a18.png)
+
+Image was successfully pushed to DOCKERHUB.
+
+![](./a19.png)
