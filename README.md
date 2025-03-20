@@ -135,7 +135,7 @@
          environment {
              DOCKERHUB_USERNAME = credentials('docker-hub-username') // Replace with Docker Hub credential ID
              DOCKERHUB_PASSWORD = credentials('docker-hub-password')
-             DOCKER_IMAGE = 'your-dockerhub-username/ecommerce-app:latest'
+             DOCKER_IMAGE = 'edwardokoto1/jenkins-project:latest'
          }
 
          tools {
@@ -145,7 +145,7 @@
          stages {
              stage('Checkout Code') {
                  steps {
-                     git branch: 'main', url: 'https://github.com/your-repo.git'
+                     git branch: 'main', url: 'https://github.com/Edward-okoto/Automating-Deployment-CI-CD-Mastery.git'
                  }
              }
 
@@ -186,8 +186,56 @@
 ### **5. Docker Image Creation and Registry Push**
 **Objective**: Automate Docker image creation and push to Docker Hub.
 
-#### **Steps**:
-1. **Create Dockerfile**:
+**Add Docker Hub Credentials in Jenkins**
+
+**Go to Jenkins Dashboard**:
+
+- Navigate to your Jenkins instance in a browser (e.g., `http://<your-server-ip>:8080`).
+
+**Access Jenkins Credentials**:
+
+- From the Jenkins dashboard, click `Manage Jenkins`.
+
+- Select `Manage Credentials`.
+
+**Add New Credentials**:
+
+- Choose a credentials domain (commonly Global).
+
+- Click Add Credentials.
+
+- Select Secret text as the type.
+
+**Add the Docker Hub Username**:
+
+`For docker-hub-username`:
+
+- In the `Secret` field, enter your Docker Hub username.
+
+- Set an `ID` for this credential, e.g., docker-hub-username.
+
+- Add a description (optional) to identify its purpose.
+
+- Save the credential.
+
+![](./a13.png)
+
+**Add the Docker Hub Password/Token**:
+
+`Repeat the process for docker-hub-password`:
+
+- In the Secret field, enter your Docker Hub password or access token.
+
+- Set an ID for this credential, e.g., docker-hub-password.
+
+- Add a description (optional).
+
+- Save the credential.
+
+![](./a14.png)
+
+
+1.**Create Dockerfile**:
    - Add a `Dockerfile` to your project repository:
      ```dockerfile
      FROM openjdk:11-jdk-slim
@@ -196,7 +244,7 @@
      ENTRYPOINT ["java", "-jar", "/app/ecommerce-app.jar"]
      ```
 
-2. **Configure Docker in Jenkins**:
+2.**Configure Docker in Jenkins**:
    - Ensure Docker is installed and Jenkins has permission to execute Docker commands:
      ```bash
      sudo usermod -aG docker jenkins
