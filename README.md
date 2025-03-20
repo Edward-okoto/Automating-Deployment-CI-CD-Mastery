@@ -251,15 +251,26 @@
      sudo systemctl restart jenkins
      ```
 
-3. **Push Docker Image to Docker Hub**:
-   - The declarative pipeline script above includes steps to log in to Docker Hub and push the image.
+3.**Push the Jenkinsfile and Other Project Files to GitHub**:
 
-4. **Run and Test the Container**:
-   - After the pipeline pushes the Docker image, run the container locally or on a server:
-     ```bash
-     docker run -d -p 3000:3000 your-dockerhub-username/ecommerce-app:latest
-     ```
-   - Access the application in your browser at `http://<server-ip>:3000`.
+Include the Dockerfile, pom.xml, source code, and Jenkinsfile in your repository.
 
----
+- Create a New Pipeline Job in Jenkins:
+
+- Navigate to New Item > Pipeline.
+
+ ![](./a16.png)
+
+- Name the pipeline (e.g., Maven Docker Project).
+
+- Select Pipeline script from SCM.
+
+- Choose Git as the SCM and provide the repository URL.
+
+- Choose `GitHub hook trigger for GITScm polling`
+
+
+ ![](./a17.png)
+
+
 
